@@ -13,6 +13,7 @@ type sdkHttpServer struct {
 }
 
 func (s *sdkHttpServer) Route(method string, pattern string, handleFunc func(ctx *Context)) {
+	// 把路由注册进s.handler.handlers
 	key := s.handler.key(method, pattern)
 	s.handler.handlers[key] = handleFunc
 	/*
